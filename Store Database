@@ -1,0 +1,21 @@
+CREATE TABLE store (id INTEGER PRIMARY KEY, name TEXT, quantity INTEGER, aisle INTEGER, price INTEGER);
+
+INSERT INTO store VALUES (1, "Denim Sherpa Jacket", 10, 3, 49.97);
+INSERT INTO store VALUES (2, "Denim Jacket", 15, 3, 55.00);
+INSERT INTO store VALUES (3, "Bomber Jacket", 9, 3, 45.00); 
+INSERT INTO store VALUES (4, "Windbreaker Jacket", 20, 3, 40.00);
+INSERT INTO store VALUES (5, "Black Denim Jeans", 18, 4, 35.00);
+INSERT INTO store VALUES (6, "White Washed Jeans", 18, 4, 35.00);
+INSERT INTO store VALUES (7, "Dark Blue Denim Jeans", 18, 4, 35.00); 
+INSERT INTO store VALUES (8, "Ripped Blue Denim Jeans", 18, 4, 40.00); 
+INSERT INTO store VALUES (9, "Basic White Tee", 30, 5, 10.00);
+INSERT INTO store VALUES (10, "Basic Black Tee", 30, 5, 10.00); 
+INSERT INTO store VALUES (11, "Basic Orange Tee", 30, 5, 10.00); 
+INSERT INTO store VALUES (12, "Basic Purple Tee", 30, 5, 10.00);
+INSERT INTO store VALUES (13, "Black Knee High Boots", 15, 6, 60.00); 
+INSERT INTO store VALUES (14, "Brown Knee Hight Boots", 15, 6, 70.00); 
+INSERT INTO store VALUES (15, "Waterproof Black Boots", 20, 6, 95.00);
+
+SELECT * FROM store
+ORDER BY price
+;SELECT aisle, SUM(quantity) FROM store GROUP BY aisle;
