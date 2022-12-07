@@ -8,6 +8,15 @@ INSERT INTO singers (state_id,fullname, age, songname, born) VALUES ("42","Miley
 INSERT INTO singers (state_id,fullname, age, songname, born) VALUES ("43","George Strait", "70", "I Cross My Heart", "Texas");
 INSERT INTO singers (state_id,fullname, age, songname, born) VALUES ("32","Alicia Keys", "41", "Fallin'", "New York"); 
 INSERT INTO singers (state_id,fullname, age, songname, born) VALUES ("32","Lady Gaga", "36", "Shallow", "New York");
+INSERT INTO singers (state_id,fullname, age, songname, born) VALUES ("32", "Lana Del Rey", "37", "Blue Jean", "New York");
+INSERT INTO singers (state_id,fullname, age, songname, born) VALUES ("9", "Ariana Grande", "29", "Thank You, Next", "Florida");
+INSERT INTO singers (state_id,fullname, age, songname, born) VALUES ("9", "Jason Derulo", "33", "Slidin'", "Florida");
+INSERT INTO singers (state_id,fullname, age, songname, born) VALUES ("42","Justin Timberlake", "41", "Mirrors", "Tennessee");
+INSERT INTO singers (state_id,fullname, age, songname, born) VALUES ("43", "Kelly Clarkson", "40", "Stronger", "Texas");
+INSERT INTO singers (state_id,fullname, age, songname, born) VALUES ("10", "Luke Bryan", "46", "Up", "Georgia");
+INSERT INTO singers (state_id,fullname, age, songname, born) VALUES ("11", "Bruno Mars", "37", "Uptown Funk", "Hawaii");
+INSERT INTO singers (state_id,fullname, age, songname, born) VALUES ("43", "Hilary Duff", "35", "Come Clean", "Texas");
+INSERT INTO singers (state_id,fullname, age, songname, born) VALUES ("9", "Pitbull", "41", "Timber", "Florida");
 
 CREATE table authors (
 id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -19,19 +28,29 @@ INSERT INTO authors (state_id,fullname, age, bookname, born) VALUES ("20","Taylo
 INSERT INTO authors (state_id,fullname, age, bookname, born) VALUES ("27","Nicholas Charles Sparks", "56", "A Walk To Remeber", "Nebraska"); 
 INSERT INTO authors (state_id,fullname, age, bookname, born) VALUES ("14","John Michael Green", "45", "Paper Towns", "Indiana");
 INSERT INTO authors (state_id,fullname, age, bookname, born) VALUES ("7","Suzanne Collins", "60", "Catching Fire", "Connecticut");
+INSERT INTO authors (state_id,fullname, age, bookname, born) VALUES ("43", "Gail Biles", "67", "Girls Like Us", "Texas");
+INSERT INTO authors (state_id,fullname, age, bookname, born) VALUES ("43", "Jennifer Archer", "65", "What I Never Expected", "Texas");
+INSERT INTO authors (state_id,fullname, age, bookname, born) VALUES ("36", "Jamie McGuire", "44", "Walking Disaster", "Oklahoma");
+INSERT INTO authors (state_id,fullname, age, bookname, born) VALUES ("15", "Penelope Douglas", "45", "Birthday Girl", "Iowa");
+INSERT INTO authors (state_id,fullname, age, bookname, born) VALUES ("1", "Abbi Glines", "45", "Until Friday Night", "Alabama");
+INSERT INTO authors (state_id,fullname, age, bookname, born) VALUES ("46", "Jenny Han", "42", "The Summer I Turned Pretty", "Virginia");
+INSERT INTO authors (state_id,fullname, age, bookname, born) VALUES ("46", "Rachel Hawkins", "43", "Prince Charming", "Virginia");
+INSERT INTO authors (state_id,fullname, age, bookname, born) VALUES ("35", "Anna Todd", "33", "After", "Ohio");
+INSERT INTO authors (state_id,fullname, age, bookname, born) VALUES ("5", "Jay Asher", "47", "What Light", "California");
+
 
 SELECT * FROM singers
 ;SELECT * FROM authors 
-
-;SELECT a.fullname, s.fullname
-FROM authors a
-JOIN singers s
-ON a.state_id=s.state_id
 
 ;SELECT a.fullname, s.fullname 
 FROM authors a 
 JOIN singers s 
 ON a.age=s.age 
+
+;SELECT a.fullname, s.fullname
+FROM authors a
+JOIN singers s
+ON a.state_id=s.state_id
 
 ;SELECT fullname FROM singers WHERE age < 50
 ;SELECT fullname FROM authors WHERE age < 50
@@ -41,3 +60,5 @@ ON a.age=s.age
 
 ;SELECT fullname FROM authors WHERE bookname = "It Ends With Us"
 ;SELECT fullname FROM singers WHERE songname = "Cover Me Up"
+
+;SELECT fullname FROM singers WHERE born = "Florida"
