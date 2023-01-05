@@ -1,0 +1,78 @@
+
+
+#1. Show all customers that live in the United States. 
+SELECT FirstName, LastName, CustomerId, Country 
+FROM chinook.customers 
+WHERE Country = "USA"
+
+#2. Show only customers that live in France. 
+SELECT * FROM chinook.customers 
+WHERE Country = "France" ;
+
+#3. Find the Invoices of customers who are from France. The resulting table should show the customer's full name, Invoice ID, Date of the invoice, and billing country.
+SELECT cust.FirstName, cust.LastName, inv.InvoiceId, inv.BillingCountry, inv.InvoiceDate
+FROM chinook.invoices as inv 
+LEFT JOIN chinook.customers as cust 
+on inv.CustomerId = cust.CustomerId 
+WHERE inv.BillingCountry = "France";
+
+#4. Job Titles 
+SELECT Title FROM chinook.Employees
+
+#5. Show the Employees who are IT Staff. 
+SELECT * FROM chinook.Employees
+WHERE Title = "IT Staff" ;
+
+#6. Show the Employee that is IT Manager. 
+SELECT * FROM chinook.Employees
+WHERE Title = "IT Manager" ;
+
+#7. Individuals hired in 2002.
+SELECT COUNT(*)
+FROM chinook.Employees
+WHERE HireDate BETWEEN '2002-01-01' AND '2002-12-31';
+
+#8. Total amount of employees
+SELECT COUNT(*)
+FROM chinook.Employees
+
+#9. How many Invoices were there in 2010?
+SELECT COUNT(*)
+FROM chinook.Invoices
+WHERE InvoiceDate BETWEEN '2010-01-01' AND '2010-12-31';
+
+#10. What are the total sales for 2010?
+SELECT SUM(Total)
+FROM chinook.Invoices
+WHERE InvoiceDate BETWEEN '2010-01-01' AND '2010-12-31';
+
+#11. Which sales agent made the most dollars in sales in 2010?
+SELECT emp.FirstName, emp.LastName,
+ROUND(SUM(Inv.Total), 2) as 'Total Sales' 
+FROM chinook.Employees emp
+
+JOIN chinook.Customers cust 
+ON cust.SupportRepId = emp.EmployeeId
+
+JOIN chinook.Invoices Inv 
+ON Inv.CustomerId = cust.CustomerId
+
+WHERE emp.Title = 'Sales Support Agent' 
+AND Inv.InvoiceDate LIKE '2010%' 
+GROUP BY emp.FirstName
+ORDER BY (round(sum(Inv.Total), 2))  DESC LIMIT 1;
+
+#12. Write a query that includes the purchased track name with each invoice line ID, unit price, and quantity. 
+SELECT t.Name,i.InvoiceLineId, i.UnitPrice, i.Quantity
+FROM chinook.Invoice_items i
+JOIN chinook.Tracks t 
+ON i.TrackId = t.TrackId;
+
+#13. Write a query that includes track id, track names and genres name. 
+SELECT t.Name,t.TrackId,t.GenreId, g.Name, g.GenreId
+FROM chinook.genres g
+JOIN chinook.Tracks t 
+ON g.GenreId = t.GenreId;
+
+
+
